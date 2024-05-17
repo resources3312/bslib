@@ -1,8 +1,34 @@
+/* 
+    I writed this library only because I
+    hate rewrite usually functions example:
+    clear() or check_root(), something function
+    I put from Python3, just because they cool,
+    and in C not analog functions
+    Coded by: ViCoder32                
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-// Debug message..
 
+#ifdef _WIN32
+  #define OS_NAME "win"
+#else
+  #define OS_NAME "unix"
+#endif 
+
+
+void clear(){
+  if(OS_NAME == "win"){
+    system("cls");
+  }
+  else{
+    system("clear");
+    }
+  
+
+  
+}
 void check_root(){
   int uid = getuid();
   if(uid != 0){
@@ -24,7 +50,7 @@ void getoutput(){
    system("rm os.txt");
 }
 
-char readff(char * filename, int size){
+void readff(char * filename, int size){
   FILE *file;
   char data[size];
   int n;
@@ -34,7 +60,10 @@ char readff(char * filename, int size){
   fclose(file);
 } 
 
-
+void ostype(){
+  printf("%s", OS_NAME); // I`am genuis, i khow :>>
+  }
+  
 
 void writeff(char * filename, char * text){
   FILE * file;
@@ -46,13 +75,7 @@ void writeff(char * filename, char * text){
 
 
 int main(){
-  check_root();
-  int i = 1;
-  while(i <= 10){
-    printf("Debugging... \n");
-    i = i + 1;
-  }
-  printf(" Done \n");
+  ostype();
   return 0;
 }
 
