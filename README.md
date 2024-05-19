@@ -1,8 +1,8 @@
 # Basiclib  
 
 Or bslib, this library writed, for more effective and fastly
-writing code. no think about code quality, I begginer in C 
-language, and library will update end become better
+writing code. No think about code quality, I begginer in C 
+language, and library will update end become better and quality
 
 ## Installation
 
@@ -11,8 +11,6 @@ git clone https://github.com/resources3312/bslib.git
 cd bslib
 chmod +x install.sh
 ./install.sh
-
-
 ```
 
 ## Usage 
@@ -29,8 +27,6 @@ int main(){
 
 /* Output:
     unix 
-
-
 */
 
 ```
