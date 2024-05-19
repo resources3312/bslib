@@ -17,6 +17,23 @@
   #define OS_NAME "unix"
 #endif 
 
+#define red   "\x1B[31m"
+#define green   "\x1B[32m"
+#define yellow   "\x1B[33m"
+#define blue   "\x1B[34m"
+#define purple   "\x1B[35m"
+#define cyan   "\x1B[36m"
+#define white   "\x1B[37m"
+#define RESET "\x1B[0m"
+
+
+
+
+
+
+
+
+
 
 void clear(){
   if(OS_NAME == "win"){
@@ -29,6 +46,7 @@ void clear(){
 
   
 }
+
 void check_root(){
   int uid = getuid();
   if(uid != 0){
@@ -50,14 +68,18 @@ void getoutput(){
    system("rm os.txt");
 }
 
-void readff(char * filename, int size){
+void readff(char * filename, int size, int i){
   FILE *file;
   char data[size];
   int n;
- 
   file = fopen(filename, "rb");
   n = fread(data, sizeof(char), size, file);
   fclose(file);
+  if(i != 0){
+    printf("%s", data);
+  }
+  
+
 } 
 
 void ostype(){
@@ -73,9 +95,4 @@ void writeff(char * filename, char * text){
 }
 
 
-
-int main(){
-  ostype();
-  return 0;
-}
 
