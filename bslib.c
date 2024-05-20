@@ -26,6 +26,30 @@
 #define white   "\x1B[37m"
 #define RESET "\x1B[0m"
 
+#ifdef _WIN32
+  #define OS_NAME "Windows"
+#elif __ANDROID__
+  #define OS_NAME "Android"
+#elif __linux__
+  #define OS_NAME "Linux"
+#elif  _AIX
+  #define OS_NAME "IBM AIX" // wHAT IS IT&!
+#elif BSD 
+  #define OS_NAME "BSD"
+
+#elif __hpux
+  #define OS_NAME "HP-UX"
+
+
+
+#elif __sun && __SVR4
+  #define OS_NAME "Solaris"
+#elif __APPLE__ && __MACH__ 
+  #define OS_NAME "Apple" 
+#else 
+  #define OS_NAME "Null"
+#endif
+
 
 
 
