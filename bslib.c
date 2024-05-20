@@ -78,21 +78,22 @@ void check_root(){
 
 
 
-void getoutput(char * com){
+char * getoutput(char * com){
   FILE *file;
   char buf[1024];
+  char *buffer = buf;
   file = popen(com, "r");
 
   if(file == NULL){
     fputs("Error to run command, try again",stderr);
   }
   else{
-    while(fgets(buf, sizeof(buf), file) != NULL){
-      printf("%s", buf);
-      
+    while(fgets(buffer, sizeof(buffer), file) != NULL){
+    
     }
     pclose(file);
   }
+  return buffer;
 }
 
 void readff(char * filename, int size, int i){
