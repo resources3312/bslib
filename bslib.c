@@ -75,15 +75,24 @@ void check_root(){
   } 
 }
 
-void getoutput(){
-   system("uname > os.txt");
-   FILE *file;
-   char data[10];
-   int n;
-   file = fopen("os.txt", "r");
-   n = fread(data, sizeof(char), 10, file);
-   fclose(file);
-   system("rm os.txt");
+
+
+
+void getoutput(char * com){
+  FILE *file;
+  char buf[1024];
+  file = popen(com, "r");
+
+  if(file == NULL){
+    fputs("Error to run command, try again",stderr);
+  }
+  else{
+    while(fgets(buf, sizeof(buf), file) != NULL){
+      printf("%s", buf);
+      
+    }
+    pclose(file);
+  }
 }
 
 void readff(char * filename, int size, int i){
