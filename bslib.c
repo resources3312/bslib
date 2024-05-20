@@ -11,12 +11,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#ifdef _WIN32
-  #define OS_NAME "win"
-#else
-  #define OS_NAME "unix"
-#endif 
-
 #define red   "\x1B[31m"
 #define green   "\x1B[32m"
 #define yellow   "\x1B[33m"
