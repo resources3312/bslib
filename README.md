@@ -1,9 +1,7 @@
 # Basiclib  
 
-Or bslib, this library writed, for more effective and fastly
-writing code. No think about code quality, I begginer in C 
-language, and library will update end become better and quality
-
+Or bslib, this library was written for more effective and faster code writing.
+The code is a mess, I'm still a beginner in C programming, but i will update and refactor it sometime
 ## Installation
 
 ``` bash
@@ -26,7 +24,7 @@ int main(){
 }
 
 /* Output:
-    unix 
+   Linux 
 */
 
 ```
