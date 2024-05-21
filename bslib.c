@@ -52,9 +52,8 @@
 
 
 
-
 void clear(){
-  if(OS_NAME == "win"){
+  if(OS_NAME == "Windows"){
     system("cls");
   }
   else{
@@ -81,9 +80,8 @@ void check_root(){
 char * getoutput(char * com){
   FILE *file;
   char buf[1024];
-  char *buffer = buf;
+  char *buffer = (char *)malloc(sizeof(buf));
   file = popen(com, "r");
-
   if(file == NULL){
     fputs("Error to run command, try again",stderr);
   }
@@ -92,6 +90,7 @@ char * getoutput(char * com){
     
     }
     pclose(file);
+    free();
   }
   return buffer;
 }
