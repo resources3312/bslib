@@ -44,12 +44,13 @@
   #define OS_NAME "Null"
 #endif
 
+char * current_time(){
+  time_t tm = time(NULL);
+  char * out = (char *)malloc(100);
+  strcpy(out, ctime(&tm));
 
-
-
-
-
-
+  return out;
+}
 
 
 void clear(){
@@ -79,8 +80,7 @@ void check_root(){
 
 char * getoutput(char * com){
   FILE *file;
-  char buf[1024];
-  char *buffer = (char *)malloc(sizeof(buf));
+  char *buffer = (char *)malloc(1024);
   file = popen(com, "r");
   if(file == NULL){
     fputs("Error to run command, try again",stderr);
@@ -90,27 +90,34 @@ char * getoutput(char * com){
     
     }
     pclose(file);
-    free();
   }
   return buffer;
 }
 
-void readff(char * filename, int size, int i){
+char * readff(char * filename, int * size){
   FILE *file;
   char data[size];
-  int n;
+  char * buffer = (char *)malloc(sizeof(data));
   file = fopen(filename, "rb");
-  n = fread(data, sizeof(char), size, file);
-  fclose(file);
-  if(i != 0){
-    printf("%s", data);
+  if(file == NULL){
+    fputs("File the void, stopping...",stderr);
   }
-  
+  else{
+    while(fgets(buffer, sizeof(buffer), file)){
+
+    } 
+    pclose(file);
+    }
+    return buffer;
 
 } 
 
-void ostype(){
-  printf("%s", OS_NAME); // I`am genuis, i khow :>>
+char * ostype(){
+  char buf[30];
+  char *buffer = (char *)malloc(sizeof(buf)); 
+  buffer = OS_NAME;
+
+  return buffer; 
   }
   
 
