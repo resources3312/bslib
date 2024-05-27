@@ -19,12 +19,12 @@ chmod +x install.sh
 int main(){
     clear();
     char * os = ostype();
-    printf("Your os: %s", os);
+    printf("Your os: %s\n", os);
     return 0;
 }
 
 /* Output:
-   Linux 
+  Your os: Linux 
 */
 
 ```
