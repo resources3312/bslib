@@ -18,8 +18,8 @@ chmod +x install.sh
 #include <bslib.h>
 int main(){
     clear();
-    ostype();
-
+    char * os = ostype();
+    printf("Your os: %s", os);
     return 0;
 }
 
